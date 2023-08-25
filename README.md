@@ -1,6 +1,7 @@
 # Welcome to PHPHelper
 Plugin for NeoVim to create dock-blocks
 
+![PHPHelper gif](https://github.com/curkan/phphelper/blob/master/phphelper.gif)
 
 Command for add dock-block:
 
