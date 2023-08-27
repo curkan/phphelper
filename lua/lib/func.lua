@@ -2,7 +2,6 @@ local func = {}
 
 
 local function parse_params(params_str)
-
     local params = {}
     local pattern = "(%w+)%s+$(%w+)"
 

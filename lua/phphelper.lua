@@ -20,6 +20,14 @@ function add_dockblock()
     end
 end
 
-vim.cmd("command! AddPhpDockBlock lua add_dockblock()")
-map('n', '<leader>p', '<cmd>lua add_dockblock()<cr>', default_opts)
+function generate(method)
+    local ts = require('utils.generate')
+    ts.generate_getters_setters(method)
+end
 
+
+vim.cmd("command! PHPAddDockBlock lua add_dockblock()")
+vim.cmd("command! PHPGenerateAll lua generate()")
+vim.cmd("command! PHPGenerateGetter lua generate('getter')")
+vim.cmd("command! PHPGenerateSetter lua generate('setter')")
+map('n', '<leader>p', '<cmd>lua add_dockblock()<cr>', default_opts)

@@ -14,7 +14,6 @@ function variable.get_variable(line)
 
     if count_words == 2 then
         -- public $name
-        -- type = string.match(line, "[public|function|protected]%s+?([^%s]+)%s+([%w]+)")
         name = string.match(line, "%s+$(%w+)")
     elseif count_words == 3 then
         -- public static $name
