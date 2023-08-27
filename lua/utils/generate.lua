@@ -39,9 +39,9 @@ end
 local function writeGetter(bufnr, property, existing_getters, last_brace_index, method)
  
     -- Генерируем DocBlock
-    local dockblock_module = require('utils.generate_dockblock')
-    local dockblock = {}
-    dockblock = dockblock_module.makeDockBlock(property, method)
+    local docblock_module = require('utils.generate_docblock')
+    local docblock = {}
+    docblock = docblock_module.makeDocblock(property, method)
 
     local getter_name = 'get' .. capitalizeFirstLetter(property.name)
     local getter_type = property.type
@@ -58,8 +58,8 @@ local function writeGetter(bufnr, property, existing_getters, last_brace_index, 
 
         local getter_index = last_brace_index
         local tableGetter = {}
-        table.move(dockblock, 1, #dockblock, 1, tableGetter)
-        table.move(getter_code, 1, #getter_code, #dockblock + 1, tableGetter)
+        table.move(docblock, 1, #docblock, 1, tableGetter)
+        table.move(getter_code, 1, #getter_code, #docblock + 1, tableGetter)
 
         vim.api.nvim_buf_set_lines(bufnr, getter_index, getter_index, false, tableGetter)
     end
@@ -67,9 +67,9 @@ end
 
 local function writeSetter(bufnr, property, existing_setters, last_brace_index, method)
     -- Генерируем DocBlock
-    local dockblock_module = require('utils.generate_dockblock')
-    local dockblock = {}
-    dockblock = dockblock_module.makeDockBlock(property, method)
+    local docblock_module = require('utils.generate_docblock')
+    local docblock = {}
+    docblock = docblock_module.makeDocblock(property, method)
 
 
     local setter_name = 'set' .. capitalizeFirstLetter(property.name)
@@ -88,8 +88,8 @@ local function writeSetter(bufnr, property, existing_setters, last_brace_index, 
         local setter_index = last_brace_index
 
         local tableSetter = {}
-        table.move(dockblock, 1, #dockblock, 1, tableSetter)
-        table.move(setter_code, 1, #setter_code, #dockblock + 1, tableSetter)
+        table.move(docblock, 1, #docblock, 1, tableSetter)
+        table.move(setter_code, 1, #setter_code, #docblock + 1, tableSetter)
 
         vim.api.nvim_buf_set_lines(bufnr, setter_index, setter_index, false, tableSetter)
     end
