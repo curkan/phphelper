@@ -5,9 +5,18 @@ local function parse_params(params_str)
     local params = {}
     local pattern = "(%w+)%s+$(%w+)"
 
-    for type, name in string.gmatch(params_str, pattern) do
-        table.insert(params, { type = type, name = name })
+    if params_str == nil then
+        return params
     end
+
+    local parse = string.gmatch(params_str, pattern)
+
+    if parse ~= nil then
+        for type, name in string.gmatch(params_str, pattern) do
+            table.insert(params, { type = type, name = name })
+        end
+    end
+
 
     return params
 end

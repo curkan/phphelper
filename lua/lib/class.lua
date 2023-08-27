@@ -24,10 +24,6 @@ function class.get_class(line)
 
     class_info.Implements = get_implements(line)
 
-    for _, value in ipairs(class_info) do
-        print(value)
-    end
-
     return class_info
 end
 
