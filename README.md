@@ -1,15 +1,23 @@
 # PHPHelper
 Plugin for NeoVim to create dock-blocks
 
+Create dockblock at cursor
 ![PHPHelper gif](https://github.com/curkan/phphelper/blob/master/phphelper.gif)
 
-Command for add dock-block:
 
-    :AddPhpDockBlock
+Generate getter and setter for class
+![PHPHelpergenerate gif](https://github.com/curkan/phphelper/blob/master/phphelper_generate.gif)
+
+Commands: 
+
+    :PHPAddDockBlock
+    :PHPGenerateAll
+    :PHPGenerateGetter
+    :PHPGenerateSetter
 
 ## Shortcuts
 
-by default: 
+by default for create dock block: 
 
     <leader>p
 
